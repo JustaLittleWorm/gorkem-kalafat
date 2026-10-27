@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Görkem Kalafat - Director & Film Maker</title>
+  <title>Görkem Kalafat - Director & Filmmaker</title>
   <style>
     
     /* 1. Palma W00 Regular font tanımı */
@@ -16,16 +16,6 @@
       font-weight: normal;
       font-style: normal;
     }
-    .subtitle {
-  font-family: "Helvetica Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;      /* Light */
-  font-style: italic;     /* Italic */
-  font-size: 0.95rem;
-  color: #a0a0a0;
-  margin-top: 8px;
-  letter-spacing: 0.5px;
-}
-
     /* Google Font Fallback (Yüklenememe durumuna karşı sanatsal alternatif) */
     @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 
@@ -88,20 +78,22 @@
       font-style: italic;
       font-size: 0.95rem;
       color: #a0a0a0;
-      margin-top: 8px;
+      margin-top: 2px;
       letter-spacing: 0.5px;
+      text-align: right;
     }
 
     /* 26 Adet Görsel İçin Dağınık Alan */
     .gallery-container {
       position: relative;
       width: 100%;
-      height: 2800px; /* Görsel sayısı arttığı için dikey alan genişletildi */
+      height: 3100px;
       margin-top: 40px;
     }
 
     .photo-card {
       position: absolute;
+      --card-ratio: 16 / 10;
       background-color: #1a1a1a;
       border-radius: 2px;
       overflow: hidden;
@@ -119,6 +111,87 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .photo-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .photo-card a:focus-visible,
+    .social-icon:focus-visible,
+    .contact-footer a:focus-visible {
+      outline: 2px solid #e53935;
+      outline-offset: 4px;
+    }
+
+    .video-player {
+      position: fixed;
+      top: 50%;
+      left: 50vw;
+      width: min(1000px, calc(100vw - 32px), calc((100vh - 32px) * 16 / 9));
+      height: auto;
+      margin: 0;
+      transform: translate(-50%, -50%);
+      aspect-ratio: 16 / 9;
+      max-width: none;
+      max-height: none;
+      padding: 0;
+      border: 0;
+      overflow: visible;
+      background: transparent;
+    }
+
+    .video-player::backdrop {
+      background: transparent;
+    }
+
+    .player-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      padding: 36px 0 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      color: #a0a0a0;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      grid-column: 3;
+      text-align: right;
+    }
+
+    .contact-separator {
+      white-space: pre;
+    }
+
+    .contact-footer .social-icon {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .contact-footer a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact-footer a:hover {
+      color: #fff;
     }
 
     /* --- 26 KARTIN DAĞINIK KONUMLARI VE KATMANLARI --- */
@@ -152,12 +225,41 @@
     .card-25 { top: 2610px; left: 18%; width: 21%; height: 220px; z-index: 1; }
     .card-26 { top: 2680px; left: 55%; width: 26%; height: 260px; z-index: 3; }
 
-    /* Sol alttaki Instagram İkonu */
+    .framing-landscape,
+    .framing-strip,
+    .framing-portrait,
+    .framing-square {
+      height: auto;
+      aspect-ratio: var(--card-ratio);
+    }
+
+    .framing-landscape {
+      --card-ratio: 16 / 9;
+    }
+
+    .framing-strip {
+      --card-ratio: 2.4 / 1;
+    }
+
+    .framing-portrait {
+      --card-ratio: 4 / 5;
+    }
+
+    .framing-square {
+      --card-ratio: 1 / 1;
+    }
+
+    .framing-square img {
+      object-position: center bottom;
+    }
+
+    .framing-gauge img {
+      object-position: center 45%;
+    }
+
+    /* Instagram bağlantısı */
     .social-icon {
-      position: fixed;
-      bottom: 30px;
-      left: 40px;
-      z-index: 100;
+      display: inline-flex;
       color: #ffffff;
       opacity: 0.8;
       transition: opacity 0.3s;
@@ -187,6 +289,10 @@
         text-align: center;
       }
 
+      .subtitle {
+        text-align: center;
+      }
+
       .name-title {
         font-size: 2.5rem;
       }
@@ -203,12 +309,27 @@
         top: auto !important;
         left: auto !important;
         width: 100% !important;
-        height: 250px !important;
+        height: auto !important;
+        aspect-ratio: var(--card-ratio);
       }
 
-      .social-icon {
-        bottom: 20px;
-        left: 20px;
+      .contact-footer {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 18px;
+        padding: 28px 0 20px;
+        font-size: 0.8rem;
+      }
+
+      .contact-footer .social-icon {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .contact-details {
+        grid-column: 1;
+        justify-content: flex-end;
+        max-width: 100%;
       }
     }
   </style>
@@ -228,44 +349,85 @@
     <!-- Sol Başlık -->
     <div class="brand-section">
       <h1 class="name-title">Görkem Kalafat</h1>
-      <p class="subtitle">Director & Film Maker</p>
+      <p class="subtitle">director &amp; filmmaker</p>
     </div>
 
     
     <!-- 26 Dağınık Görsel Kutusu -->
 <div class="gallery-container">
-  <div class="photo-card card-1"><a href="https://vimeo.com/1238450478" target="_blank"><img src="assets/images/inster.png" alt="Kare 1"></a></div>
-  <div class="photo-card card-2"><a href="https://vimeo.com/663675980" target="_blank"><img src="assets/images/bbva.png" alt="Kare 2"></a></div>
-  <div class="photo-card card-3"><a href="https://vimeo.com/663922196" target="_blank"><img src="assets/images/çiçeksepeti.png" alt="Kare 3"></a></div>
-  <div class="photo-card card-4"><a href="https://vimeo.com/934795840" target="_blank"><img src="assets/images/kamufle.png" alt="Kare 4"></a></div>
-  <div class="photo-card card-5"><a href="https://vimeo.com/663832973" target="_blank"><img src="assets/images/loreal.png" alt="Kare 5"></a></div>
-  <div class="photo-card card-6"><a href="https://vimeo.com/1238469782" target="_blank"><img src="assets/images/arabamcom.png" alt="Kare 6"></a></div>
-  <div class="photo-card card-7"><a href="https://vimeo.com/1238464693" target="_blank"><img src="assets/images/bayon.png" alt="Kare 7"></a></div>
-  <div class="photo-card card-8"><a href="https://vimeo.com/1238818171" target="_blank"><img src="assets/images/bilmiyom.png" alt="Kare 8"></a></div>
-  <div class="photo-card card-9"><a href="https://vimeo.com/663665458" target="_blank"><img src="assets/images/elseve.png" alt="Kare 9"></a></div>
-  <div class="photo-card card-10"><a href="https://vimeo.com/1238466150" target="_blank"><img src="assets/images/endeksa.png" alt="Kare 10"></a></div>
-  <div class="photo-card card-11"><a href="https://vimeo.com/1238454623" target="_blank"><img src="assets/images/gurme.png" alt="Kare 11"></a></div>
-  <div class="photo-card card-12"><a href="https://vimeo.com/1238851484" target="_blank"><img src="assets/images/i30.png" alt="Kare 12"></a></div>
-  <div class="photo-card card-13"><a href="https://vimeo.com/1123254409" target="_blank"><img src="assets/images/insterbke.png" alt="Kare 13"></a></div>
-  <div class="photo-card card-14"><a href="https://vimeo.com/1238462520" target="_blank"><img src="assets/images/instercross.png" alt="Kare 14"></a></div>
-  <div class="photo-card card-15"><a href="https://vimeo.com/1238464430" target="_blank"><img src="assets/images/ioniq.png" alt="Kare 15"></a></div>
-  <div class="photo-card card-16"><a href="https://vimeo.com/1238461993" target="_blank"><img src="assets/images/ioniq6bat.png" alt="Kare 16"></a></div>
-  <div class="photo-card card-17"><a href="https://vimeo.com/663833559" target="_blank"><img src="assets/images/medipol.png" alt="Kare 17"></a></div>
-  <div class="photo-card card-18"><a href="https://vimeo.com/1060122692" target="_blank"><img src="assets/images/melisakarakurt.png" alt="Kare 18"></a></div>
-  <div class="photo-card card-19"><a href="https://vimeo.com/1238470332" target="_blank"><img src="assets/images/netnew.png" alt="Kare 19"></a></div>
-  <div class="photo-card card-20"><a href="https://vimeo.com/1064220018" target="_blank"><img src="assets/images/nyx.png" alt="Kare 20"></a></div>
-  <div class="photo-card card-21"><a href="https://vimeo.com/1238470696" target="_blank"><img src="assets/images/oralb.png" alt="Kare 21"></a></div>
-  <div class="photo-card card-22"><a href="https://vimeo.com/1151900967" target="_blank"><img src="assets/images/sunlit.png" alt="Kare 22"></a></div>
-  <div class="photo-card card-23"><a href="https://vimeo.com/1238785978" target="_blank"><img src="assets/images/toyzz.png" alt="Kare 23"></a></div>
-  <div class="photo-card card-24"><a href="https://vimeo.com/1152193654" target="_blank"><img src="assets/images/toyzzfugler.png" alt="Kare 24"></a></div>
-  <div class="photo-card card-25"><a href="https://vimeo.com/814586938" target="_blank"><img src="assets/images/tremdyol.png" alt="Kare 25"></a></div>
-  <div class="photo-card card-26"><a href="https://vimeo.com/663699775" target="_blank"><img src="assets/images/yıldıztilbe.png" alt="Kare 26"></a></div>
+  <div class="photo-card card-1 framing-landscape"><a href="https://vimeo.com/1151900967" target="_blank"><img src="assets/images/sunlit.png" alt="HangiKredi"></a></div>
+  <div class="photo-card card-2 framing-strip"><a href="https://vimeo.com/934795840" target="_blank"><img src="assets/images/kamufle.png" alt="Kamufle - Hırsına Hakim Kal"></a></div>
+  <div class="photo-card card-3 framing-portrait"><a href="https://vimeo.com/1123254409" target="_blank"><img src="assets/images/insterbke.png" alt="Hyundai Inster BKE"></a></div>
+  <div class="photo-card card-4 framing-portrait"><a href="https://vimeo.com/1238818171" target="_blank"><img src="assets/images/bilmiyom.png" alt="Canon Photo Cube"></a></div>
+  <div class="photo-card card-5 framing-square"><a href="https://vimeo.com/1152193654" target="_blank"><img src="assets/images/toyzzfugler.png" alt="Toyzz Shop - Fuggler"></a></div>
+  <div class="photo-card card-6 framing-portrait"><a href="https://vimeo.com/1238450478" target="_blank"><img src="assets/images/inster.png" alt="Hyundai Inster"></a></div>
+  <div class="photo-card card-7"><a href="https://vimeo.com/663832973" target="_blank"><img src="assets/images/loreal.png" alt="L'Oreal Paris - Cildin Süper 3'lüsü"></a></div>
+  <div class="photo-card card-8"><a href="https://vimeo.com/814586938" target="_blank"><img src="assets/images/tremdyol.png" alt="Trendyol"></a></div>
+  <div class="photo-card card-9"><a href="https://vimeo.com/1238470332" target="_blank"><img src="assets/images/netnew.png" alt="Ariel Pods"></a></div>
+  <div class="photo-card card-10"><a href="https://vimeo.com/663665458" target="_blank"><img src="assets/images/elseve.png" alt="Elseve Dreamlong"></a></div>
+  <div class="photo-card card-11 framing-portrait"><a href="https://vimeo.com/1238461993" target="_blank"><img src="assets/images/ioniq.png" alt="Hyundai IONIQ 6 Handycam"></a></div>
+  <div class="photo-card card-12"><a href="https://vimeo.com/1238469782" target="_blank"><img src="assets/images/arabamcom.png" alt="Arabam.com"></a></div>
+  <div class="photo-card card-13 framing-landscape"><a href="https://vimeo.com/1238466150" target="_blank"><img src="assets/images/endeksa.png" alt="Endeksa"></a></div>
+  <div class="photo-card card-14"><a href="https://vimeo.com/1238464430" target="_blank"><img src="assets/images/ioniq6bat.png" alt="Hyundai IONIQ 6 Battery"></a></div>
+  <div class="photo-card card-15 framing-landscape"><a href="https://vimeo.com/663833559" target="_blank"><img src="assets/images/medipol.png" alt="Medipol Üniversitesi"></a></div>
+  <div class="photo-card card-16"><a href="https://vimeo.com/1238470696" target="_blank"><img src="assets/images/oralb.png" alt="Oral-B"></a></div>
+  <div class="photo-card card-17"><a href="https://vimeo.com/1060122692" target="_blank"><img src="assets/images/melisakarakurt.png" alt="Melisa Karakurt"></a></div>
+  <div class="photo-card card-18 framing-portrait framing-gauge"><a href="https://vimeo.com/1238464693" target="_blank"><img src="assets/images/bayon.png" alt="Hyundai Bayon - gösterge paneli"></a></div>
+  <div class="photo-card card-19"><a href="https://vimeo.com/1064220018" target="_blank"><img src="assets/images/nyx.png" alt="NYX Candy Slick"></a></div>
+  <div class="photo-card card-20"><a href="https://vimeo.com/1238785978" target="_blank"><img src="assets/images/toyzz.png" alt="Toyzz Shop - QLUDUS"></a></div>
+  <div class="photo-card card-21"><a href="https://vimeo.com/663922196" target="_blank"><img src="assets/images/çiçeksepeti.png" alt="ÇiçekSepeti"></a></div>
+  <div class="photo-card card-22 framing-portrait"><a href="https://vimeo.com/1238851484" target="_blank"><img src="assets/images/i30.png" alt="Hyundai i30"></a></div>
+  <div class="photo-card card-23 framing-portrait"><a href="https://vimeo.com/1238454623" target="_blank"><img src="assets/images/gurme.png" alt="GurmePack"></a></div>
+  <div class="photo-card card-24 framing-landscape"><a href="https://vimeo.com/663675980" target="_blank"><img src="assets/images/bbva.png" alt="Garanti BBVA"></a></div>
+  <div class="photo-card card-25"><a href="https://vimeo.com/663699775" target="_blank"><img src="assets/images/yıldıztilbe.png" alt="Yıldız Tilbe"></a></div>
+  <div class="photo-card card-26"><a href="https://vimeo.com/1238462520" target="_blank"><img src="assets/images/instercross.png" alt="Hyundai Inster Cross"></a></div>
 </div>
-  <!-- Sol Alt Instagram İkonu -->
-  <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+  <footer class="contact-footer" aria-label="İletişim bilgileri">
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
     <svg viewBox="0 0 24 24">
       <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
     </svg>
   </a>
+    <div class="contact-details">
+      <a href="tel:+905448470585">Tel. 544-847-05-85</a>
+      <span class="contact-separator" aria-hidden="true">////</span>
+      <a href="mailto:info@gorkemkalafat.com">info@gorkemkalafat.com</a>
+    </div>
+  </footer>
+  </div>
+  <dialog class="video-player" aria-label="Vimeo video oynatıcı">
+    <iframe class="player-frame" title="Vimeo video oynatıcı" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+  </dialog>
+  <script>
+    const videoPlayer = document.querySelector('.video-player');
+    const playerFrame = document.querySelector('.player-frame');
+
+    document.querySelectorAll('.photo-card a[href^="https://vimeo.com/"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const videoId = new URL(link.href).pathname.split('/').filter(Boolean)[0];
+        if (!/^\d+$/.test(videoId)) {
+          return;
+        }
+
+        event.preventDefault();
+        playerFrame.src = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+        videoPlayer.showModal();
+      });
+    });
+
+    function closeVideoPlayer() {
+      videoPlayer.close();
+      playerFrame.src = '';
+    }
+
+    videoPlayer.addEventListener('click', (event) => {
+      if (event.target === videoPlayer) {
+        closeVideoPlayer();
+      }
+    });
+    videoPlayer.addEventListener('close', () => {
+      playerFrame.src = '';
+    });
+  </script>
 </body>
 </html>
