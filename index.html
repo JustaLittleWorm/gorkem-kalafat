@@ -50,17 +50,17 @@
     .main-container {
       position: relative;
       width: 100%;
-      max-width: 1440px;
+      max-width: 1500px;
       margin: 0 auto;
-      padding: 40px;
+      container-type: inline-size;
     }
 
     /* Sol isim ve unvan alanı */
     .brand-section {
       position: absolute;
-      left: 6%;
-      top: 180px;
-      z-index: 10;
+      left: 10.1%;
+      top: 12.5cqw;
+      z-index: 20;
     }
 
     .name-title {
@@ -87,21 +87,22 @@
     .gallery-container {
       position: relative;
       width: 100%;
-      height: 3100px;
-      margin-top: 40px;
+      height: 293cqw;
+      margin: 0 auto;
+      container-type: inline-size;
     }
 
     .photo-card {
       position: absolute;
-      --card-ratio: 16 / 10;
       background-color: #1a1a1a;
       border-radius: 2px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      transition: transform 0.4s ease, z-index 0.2s;
+      transition: transform 0.4s ease;
     }
 
-    .photo-card:hover {
+    .photo-card:hover,
+    .photo-card:focus-within {
       z-index: 100 !important;
       transform: scale(1.03);
     }
@@ -110,6 +111,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: var(--object-position, 50% 50%);
       display: block;
     }
 
@@ -194,68 +196,33 @@
       color: #fff;
     }
 
-    /* --- 26 KARTIN DAĞINIK KONUMLARI VE KATMANLARI --- */
-    .card-1  { top: 130px; left: 45%; width: 27%; height: 270px; z-index: 1; }
-    .card-2  { top: 300px; left: 69%; width: 21%; height: 210px; z-index: 3; }
-    .card-3  { top: 400px; left: 26%; width: 27%; height: 300px; z-index: 2; }
-    .card-4  { top: 500px; left: 60%; width: 24%; height: 250px; z-index: 2; }
-    .card-5  { top: 580px; left: 12%; width: 26%; height: 260px; z-index: 4; }
-    .card-6  { top: 720px; left: 44%; width: 18%; height: 200px; z-index: 3; }
-
-    .card-7  { top: 820px; left: 65%; width: 26%; height: 280px; z-index: 2; }
-    .card-8  { top: 900px; left: 22%; width: 22%; height: 230px; z-index: 5; }
-    .card-9  { top: 1020px; left: 47%; width: 25%; height: 260px; z-index: 3; }
-    .card-10 { top: 1100px; left: 10%; width: 28%; height: 290px; z-index: 1; }
-    .card-11 { top: 1200px; left: 68%; width: 20%; height: 220px; z-index: 4; }
-    .card-12 { top: 1310px; left: 35%; width: 26%; height: 270px; z-index: 2; }
-
-    .card-13 { top: 1420px; left: 15%; width: 22%; height: 240px; z-index: 3; }
-    .card-14 { top: 1500px; left: 58%; width: 27%; height: 280px; z-index: 1; }
-    .card-15 { top: 1610px; left: 32%; width: 23%; height: 220px; z-index: 4; }
-    .card-16 { top: 1720px; left: 70%; width: 21%; height: 230px; z-index: 2; }
-    .card-17 { top: 1800px; left: 8%;  width: 26%; height: 270px; z-index: 3; }
-    .card-18 { top: 1910px; left: 42%; width: 25%; height: 260px; z-index: 5; }
-
-    .card-19 { top: 2020px; left: 64%; width: 24%; height: 250px; z-index: 2; }
-    .card-20 { top: 2100px; left: 20%; width: 28%; height: 290px; z-index: 1; }
-    .card-21 { top: 2220px; left: 50%; width: 22%; height: 230px; z-index: 4; }
-    .card-22 { top: 2310px; left: 12%; width: 25%; height: 260px; z-index: 3; }
-    .card-23 { top: 2400px; left: 66%; width: 23%; height: 240px; z-index: 2; }
-    .card-24 { top: 2500px; left: 38%; width: 27%; height: 280px; z-index: 5; }
-    .card-25 { top: 2610px; left: 18%; width: 21%; height: 220px; z-index: 1; }
-    .card-26 { top: 2680px; left: 55%; width: 26%; height: 260px; z-index: 3; }
-
-    .framing-landscape,
-    .framing-strip,
-    .framing-portrait,
-    .framing-square {
-      height: auto;
-      aspect-ratio: var(--card-ratio);
-    }
-
-    .framing-landscape {
-      --card-ratio: 16 / 9;
-    }
-
-    .framing-strip {
-      --card-ratio: 2.4 / 1;
-    }
-
-    .framing-portrait {
-      --card-ratio: 4 / 5;
-    }
-
-    .framing-square {
-      --card-ratio: 1 / 1;
-    }
-
-    .framing-square img {
-      object-position: center bottom;
-    }
-
-    .framing-gauge img {
-      object-position: center 45%;
-    }
+    /* Yerleşim_Olculeri.json'daki 1500 px masaüstü koordinatları */
+    .card-1  { left: 52.66667%; top: 14.53333cqw; width: 21.73333%; height: 12.33333cqw; z-index: 3; }
+    .card-2  { left: 66.86667%; top: 22.86667cqw; width: 19.33333%; height: 10.86667cqw; z-index: 5; }
+    .card-3  { left: 30.33333%; top: 31.73333cqw; width: 21.26667%; height: 26.60000cqw; z-index: 2; --object-position: 50% 77%; }
+    .card-4  { left: 59.20000%; top: 39.53333cqw; width: 20.73333%; height: 25.86667cqw; z-index: 4; --object-position: 50% 49%; }
+    .card-5  { left: 14.33333%; top: 50.80000cqw; width: 17.20000%; height: 22.06667cqw; z-index: 5; --object-position: 50% 76%; }
+    .card-6  { left: 46.66667%; top: 59.13333cqw; width: 17.53333%; height: 27.20000cqw; z-index: 4; --object-position: 51% 63%; }
+    .card-7  { left: 68.26667%; top: 69.86667cqw; width: 17.46667%; height: 11.60000cqw; z-index: 5; }
+    .card-8  { left: 22.26667%; top: 73.46667cqw; width: 24.46667%; height: 15.06667cqw; z-index: 4; --object-position: 55% 50%; }
+    .card-9  { left: 49.46667%; top: 80.60000cqw; width: 23.73333%; height: 15.26667cqw; z-index: 5; --object-position: 51% 48%; }
+    .card-10 { left: 14.80000%; top: 89.00000cqw; width: 18.33333%; height: 27.86667cqw; z-index: 4; --object-position: 50% 42%; }
+    .card-11 { left: 35.53333%; top: 93.73333cqw; width: 18.13333%; height: 28.13333cqw; z-index: 3; --object-position: 62% 60%; }
+    .card-12 { left: 56.53333%; top: 105.46667cqw; width: 23.00000%; height: 14.33333cqw; z-index: 5; --object-position: 50% 49%; }
+    .card-13 { left: 21.86667%; top: 115.46667cqw; width: 25.60000%; height: 15.33333cqw; z-index: 4; --object-position: 50% 55%; }
+    .card-14 { left: 49.13333%; top: 123.93333cqw; width: 17.80000%; height: 27.40000cqw; z-index: 3; --object-position: 59% 65%; }
+    .card-15 { left: 15.00000%; top: 135.73333cqw; width: 27.73333%; height: 16.53333cqw; z-index: 5; --object-position: 50% 45%; }
+    .card-16 { left: 40.46667%; top: 146.26667cqw; width: 24.33333%; height: 15.33333cqw; z-index: 3; }
+    .card-17 { left: 57.33333%; top: 154.93333cqw; width: 23.46667%; height: 14.66667cqw; z-index: 5; }
+    .card-18 { left: 21.00000%; top: 160.06667cqw; width: 17.40000%; height: 27.46667cqw; z-index: 5; --object-position: 58% 49%; }
+    .card-19 { left: 37.66667%; top: 174.53333cqw; width: 19.00000%; height: 19.00000cqw; z-index: 4; }
+    .card-20 { left: 56.33333%; top: 187.53333cqw; width: 21.33333%; height: 13.40000cqw; z-index: 6; --object-position: 50% 49%; }
+    .card-21 { left: 19.73333%; top: 193.93333cqw; width: 25.20000%; height: 15.60000cqw; z-index: 5; --object-position: 50% 49%; }
+    .card-22 { left: 45.86667%; top: 205.53333cqw; width: 17.66667%; height: 27.13333cqw; z-index: 3; --object-position: 50% 56%; }
+    .card-23 { left: 63.26667%; top: 214.80000cqw; width: 17.53333%; height: 27.00000cqw; z-index: 5; --object-position: 50% 66%; }
+    .card-24 { left: 21.46667%; top: 226.66667cqw; width: 25.40000%; height: 15.80000cqw; z-index: 4; --object-position: 50% 48%; }
+    .card-25 { left: 46.66667%; top: 239.86667cqw; width: 25.33333%; height: 15.93333cqw; z-index: 5; --object-position: 50% 48%; }
+    .card-26 { left: 28.20000%; top: 252.20000cqw; width: 18.26667%; height: 27.53333cqw; z-index: 5; --object-position: 50% 62%; }
 
     /* Instagram bağlantısı */
     .social-icon {
@@ -275,22 +242,15 @@
       fill: currentColor;
     }
 
-    /* Mobil uyumluluk */
-    @media (max-width: 900px) {
+    /* Mobil ölçüler 390 px genişliğindeki referans tuvale göre ölçeklenir. */
+    @media (max-width: 700px) {
       .main-container {
-        padding: 20px;
+        max-width: 390px;
       }
 
       .brand-section {
-        position: relative;
-        top: 20px;
-        left: 0;
-        margin-bottom: 40px;
-        text-align: center;
-      }
-
-      .subtitle {
-        text-align: center;
+        left: 8%;
+        top: 16cqw;
       }
 
       .name-title {
@@ -298,19 +258,7 @@
       }
 
       .gallery-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        height: auto;
-      }
-
-      .photo-card {
-        position: relative;
-        top: auto !important;
-        left: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: var(--card-ratio);
+        height: 960cqw;
       }
 
       .contact-footer {
@@ -331,6 +279,33 @@
         justify-content: flex-end;
         max-width: 100%;
       }
+
+      .card-1  { left: 50.76923%; top: 36.66667cqw; width: 41.53846%; height: 23.33333cqw; z-index: 3; }
+      .card-2  { left: 64.35897%; top: 52.05128cqw; width: 30.00000%; height: 16.92308cqw; z-index: 5; }
+      .card-3  { left: 26.92308%; top: 69.48718cqw; width: 43.58974%; height: 55.12821cqw; z-index: 2; }
+      .card-4  { left: 50.25641%; top: 106.41026cqw; width: 42.30769%; height: 53.33333cqw; z-index: 4; }
+      .card-5  { left: 8.46154%; top: 130.51282cqw; width: 39.48718%; height: 54.61538cqw; z-index: 5; }
+      .card-6  { left: 42.05128%; top: 172.05128cqw; width: 42.05128%; height: 65.12821cqw; z-index: 3; }
+      .card-7  { left: 8.97436%; top: 220.76923cqw; width: 43.33333%; height: 28.71795cqw; z-index: 5; }
+      .card-8  { left: 41.28205%; top: 240.00000cqw; width: 52.56410%; height: 32.05128cqw; z-index: 4; }
+      .card-9  { left: 10.25641%; top: 270.51282cqw; width: 55.38462%; height: 35.64103cqw; z-index: 5; }
+      .card-10 { left: 38.71795%; top: 299.74359cqw; width: 42.05128%; height: 64.61538cqw; z-index: 4; }
+      .card-11 { left: 7.43590%; top: 342.05128cqw; width: 43.84615%; height: 65.89744cqw; z-index: 5; }
+      .card-12 { left: 43.84615%; top: 398.71795cqw; width: 50.76923%; height: 32.30769cqw; z-index: 4; }
+      .card-13 { left: 8.46154%; top: 422.82051cqw; width: 53.84615%; height: 32.56410cqw; z-index: 5; }
+      .card-14 { left: 39.74359%; top: 442.56410cqw; width: 42.05128%; height: 64.87179cqw; z-index: 3; }
+      .card-15 { left: 10.51282%; top: 502.56410cqw; width: 56.41026%; height: 34.61538cqw; z-index: 5; }
+      .card-16 { left: 39.74359%; top: 530.76923cqw; width: 52.05128%; height: 32.56410cqw; z-index: 4; }
+      .card-17 { left: 10.76923%; top: 559.74359cqw; width: 53.58974%; height: 33.58974cqw; z-index: 5; }
+      .card-18 { left: 47.17949%; top: 586.66667cqw; width: 41.28205%; height: 65.64103cqw; z-index: 3; }
+      .card-19 { left: 9.23077%; top: 632.05128cqw; width: 42.56410%; height: 42.56410cqw; z-index: 5; }
+      .card-20 { left: 38.97436%; top: 664.35897cqw; width: 51.79487%; height: 32.82051cqw; z-index: 4; }
+      .card-21 { left: 10.00000%; top: 689.74359cqw; width: 52.05128%; height: 32.30769cqw; z-index: 5; }
+      .card-22 { left: 43.33333%; top: 712.82051cqw; width: 42.05128%; height: 63.58974cqw; z-index: 3; }
+      .card-23 { left: 9.48718%; top: 764.35897cqw; width: 43.07692%; height: 66.66667cqw; z-index: 5; }
+      .card-24 { left: 38.71795%; top: 816.66667cqw; width: 52.05128%; height: 33.58974cqw; z-index: 4; }
+      .card-25 { left: 11.02564%; top: 843.58974cqw; width: 56.92308%; height: 35.89744cqw; z-index: 5; }
+      .card-26 { left: 42.05128%; top: 873.84615cqw; width: 43.07692%; height: 64.61538cqw; z-index: 4; }
     }
   </style>
 </head>
