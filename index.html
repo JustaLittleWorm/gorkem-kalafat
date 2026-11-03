@@ -94,6 +94,7 @@
 
     .photo-card {
       position: absolute;
+      container-type: inline-size;
       background-color: #1a1a1a;
       border-radius: 2px;
       overflow: hidden;
@@ -116,13 +117,41 @@
     }
 
     .photo-card a {
+      position: relative;
       display: block;
       width: 100%;
       height: 100%;
     }
 
+    .photo-title {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      right: 8px;
+      transform: translateY(-50%);
+      color: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.15;
+      letter-spacing: -0.06em;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .photo-title-slash,
+    .photo-title strong {
+      font-weight: 700;
+    }
+
+    .photo-title-light {
+      color: #e6e2d8;
+    }
+
     .photo-card a:focus-visible,
-    .social-icon:focus-visible,
     .contact-footer a:focus-visible {
       outline: 2px solid #e53935;
       outline-offset: 4px;
@@ -157,9 +186,9 @@
     }
 
     .contact-footer {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
       padding: 36px 0 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.16);
@@ -171,19 +200,13 @@
     .contact-details {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      justify-content: center;
       gap: 8px;
-      grid-column: 3;
-      text-align: right;
+      text-align: center;
     }
 
     .contact-separator {
       white-space: pre;
-    }
-
-    .contact-footer .social-icon {
-      grid-column: 2;
-      grid-row: 1;
     }
 
     .contact-footer a {
@@ -197,11 +220,11 @@
     }
 
     /* Yerleşim_Olculeri.json'daki 1500 px masaüstü koordinatları */
-    .card-1  { left: 52.66667%; top: 14.53333cqw; width: 21.73333%; height: 12.33333cqw; z-index: 3; }
-    .card-2  { left: 66.86667%; top: 22.86667cqw; width: 19.33333%; height: 10.86667cqw; z-index: 5; }
+    .card-1  { left: 52.66667%; top: 14.53333cqw; width: 24.50000%; height: 13.90000cqw; z-index: 3; }
+    .card-2  { left: 64.00000%; top: 22.86667cqw; width: 25.00000%; height: 14.10000cqw; z-index: 5; }
     .card-3  { left: 30.33333%; top: 31.73333cqw; width: 21.26667%; height: 26.60000cqw; z-index: 2; --object-position: 50% 77%; }
     .card-4  { left: 59.20000%; top: 39.53333cqw; width: 20.73333%; height: 25.86667cqw; z-index: 4; --object-position: 50% 49%; }
-    .card-5  { left: 14.33333%; top: 50.80000cqw; width: 17.20000%; height: 22.06667cqw; z-index: 5; --object-position: 50% 76%; }
+    .card-5  { left: 14.33333%; top: 50.80000cqw; width: 17.20000%; height: 22.06667cqw; z-index: 5; --object-position: 50% 100%; }
     .card-6  { left: 46.66667%; top: 59.13333cqw; width: 17.53333%; height: 27.20000cqw; z-index: 4; --object-position: 51% 63%; }
     .card-7  { left: 68.26667%; top: 69.86667cqw; width: 17.46667%; height: 11.60000cqw; z-index: 5; }
     .card-8  { left: 22.26667%; top: 73.46667cqw; width: 24.46667%; height: 15.06667cqw; z-index: 4; --object-position: 55% 50%; }
@@ -210,7 +233,7 @@
     .card-11 { left: 35.53333%; top: 93.73333cqw; width: 18.13333%; height: 28.13333cqw; z-index: 3; --object-position: 62% 60%; }
     .card-12 { left: 56.53333%; top: 105.46667cqw; width: 23.00000%; height: 14.33333cqw; z-index: 5; --object-position: 50% 49%; }
     .card-13 { left: 21.86667%; top: 115.46667cqw; width: 25.60000%; height: 15.33333cqw; z-index: 4; --object-position: 50% 55%; }
-    .card-14 { left: 49.13333%; top: 123.93333cqw; width: 17.80000%; height: 27.40000cqw; z-index: 3; --object-position: 59% 65%; }
+    .card-14 { left: 62.50000%; top: 123.93333cqw; width: 17.80000%; height: 27.40000cqw; z-index: 3; --object-position: 59% 65%; }
     .card-15 { left: 15.00000%; top: 135.73333cqw; width: 27.73333%; height: 16.53333cqw; z-index: 5; --object-position: 50% 45%; }
     .card-16 { left: 40.46667%; top: 146.26667cqw; width: 24.33333%; height: 15.33333cqw; z-index: 3; }
     .card-17 { left: 57.33333%; top: 154.93333cqw; width: 23.46667%; height: 14.66667cqw; z-index: 5; }
@@ -223,24 +246,6 @@
     .card-24 { left: 21.46667%; top: 226.66667cqw; width: 25.40000%; height: 15.80000cqw; z-index: 4; --object-position: 50% 48%; }
     .card-25 { left: 46.66667%; top: 239.86667cqw; width: 25.33333%; height: 15.93333cqw; z-index: 5; --object-position: 50% 48%; }
     .card-26 { left: 28.20000%; top: 252.20000cqw; width: 18.26667%; height: 27.53333cqw; z-index: 5; --object-position: 50% 62%; }
-
-    /* Instagram bağlantısı */
-    .social-icon {
-      display: inline-flex;
-      color: #ffffff;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-
-    .social-icon:hover {
-      opacity: 1;
-    }
-
-    .social-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
-    }
 
     /* Mobil ölçüler 390 px genişliğindeki referans tuvale göre ölçeklenir. */
     @media (max-width: 700px) {
@@ -262,26 +267,19 @@
       }
 
       .contact-footer {
-        grid-template-columns: 1fr;
-        justify-items: center;
+        flex-direction: column;
         gap: 18px;
         padding: 28px 0 20px;
         font-size: 0.8rem;
       }
 
-      .contact-footer .social-icon {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
       .contact-details {
-        grid-column: 1;
-        justify-content: flex-end;
+        justify-content: center;
         max-width: 100%;
       }
 
-      .card-1  { left: 50.76923%; top: 36.66667cqw; width: 41.53846%; height: 23.33333cqw; z-index: 3; }
-      .card-2  { left: 64.35897%; top: 52.05128cqw; width: 30.00000%; height: 16.92308cqw; z-index: 5; }
+      .card-1  { left: 47.00000%; top: 36.66667cqw; width: 45.50000%; height: 25.60000cqw; z-index: 3; }
+      .card-2  { left: 56.00000%; top: 52.05128cqw; width: 40.00000%; height: 22.60000cqw; z-index: 5; }
       .card-3  { left: 26.92308%; top: 69.48718cqw; width: 43.58974%; height: 55.12821cqw; z-index: 2; }
       .card-4  { left: 50.25641%; top: 106.41026cqw; width: 42.30769%; height: 53.33333cqw; z-index: 4; }
       .card-5  { left: 8.46154%; top: 130.51282cqw; width: 39.48718%; height: 54.61538cqw; z-index: 5; }
@@ -331,40 +329,35 @@
     <!-- 26 Dağınık Görsel Kutusu -->
 <div class="gallery-container">
   <div class="photo-card card-1 framing-landscape"><a href="https://vimeo.com/1151900967" target="_blank"><img src="assets/images/sunlit.png" alt="HangiKredi"></a></div>
-  <div class="photo-card card-2 framing-strip"><a href="https://vimeo.com/934795840" target="_blank"><img src="assets/images/kamufle.png" alt="Kamufle - Hırsına Hakim Kal"></a></div>
-  <div class="photo-card card-3 framing-portrait"><a href="https://vimeo.com/1123254409" target="_blank"><img src="assets/images/insterbke.png" alt="Hyundai Inster BKE"></a></div>
-  <div class="photo-card card-4 framing-portrait"><a href="https://vimeo.com/1238818171" target="_blank"><img src="assets/images/bilmiyom.png" alt="Canon Photo Cube"></a></div>
-  <div class="photo-card card-5 framing-square"><a href="https://vimeo.com/1152193654" target="_blank"><img src="assets/images/toyzzfugler.png" alt="Toyzz Shop - Fuggler"></a></div>
-  <div class="photo-card card-6 framing-portrait"><a href="https://vimeo.com/1238450478" target="_blank"><img src="assets/images/inster.png" alt="Hyundai Inster"></a></div>
-  <div class="photo-card card-7"><a href="https://vimeo.com/663832973" target="_blank"><img src="assets/images/loreal.png" alt="L'Oreal Paris - Cildin Süper 3'lüsü"></a></div>
+  <div class="photo-card card-2 framing-strip"><a href="https://vimeo.com/934795840" target="_blank"><img src="assets/images/kamufle.png" alt="Kamufle"></a></div>
+  <div class="photo-card card-3 framing-portrait"><a href="https://vimeo.com/1123254409" target="_blank"><img src="assets/images/insterbke.png" alt="Hyundai"></a></div>
+  <div class="photo-card card-4 framing-portrait"><a href="https://vimeo.com/1238818171" target="_blank"><img src="assets/images/bilmiyom.png" alt="Canon"></a></div>
+  <div class="photo-card card-5 framing-square"><a href="https://vimeo.com/1152193654" target="_blank"><img src="assets/images/toyzzfugler.png" alt="ToyzzShop"></a></div>
+  <div class="photo-card card-6 framing-portrait"><a href="https://vimeo.com/1238450478" target="_blank"><img src="assets/images/inster.png" alt="Hyundai"></a></div>
+  <div class="photo-card card-7"><a href="https://vimeo.com/663832973" target="_blank"><img src="assets/images/loreal.png" alt="L'Oreal Paris"></a></div>
   <div class="photo-card card-8"><a href="https://vimeo.com/814586938" target="_blank"><img src="assets/images/tremdyol.png" alt="Trendyol"></a></div>
-  <div class="photo-card card-9"><a href="https://vimeo.com/1238470332" target="_blank"><img src="assets/images/netnew.png" alt="Ariel Pods"></a></div>
-  <div class="photo-card card-10"><a href="https://vimeo.com/663665458" target="_blank"><img src="assets/images/elseve.png" alt="Elseve Dreamlong"></a></div>
-  <div class="photo-card card-11 framing-portrait"><a href="https://vimeo.com/1238461993" target="_blank"><img src="assets/images/ioniq.png" alt="Hyundai IONIQ 6 Handycam"></a></div>
-  <div class="photo-card card-12"><a href="https://vimeo.com/1238469782" target="_blank"><img src="assets/images/arabamcom.png" alt="Arabam.com"></a></div>
+  <div class="photo-card card-9"><a href="https://vimeo.com/1238470332" target="_blank"><img src="assets/images/netnew.png" alt="Ariel"></a></div>
+  <div class="photo-card card-10"><a href="https://vimeo.com/663665458" target="_blank"><img src="assets/images/elseve.png" alt="Elseve"></a></div>
+  <div class="photo-card card-11 framing-portrait"><a href="https://vimeo.com/1238461993" target="_blank"><img src="assets/images/ioniq.png" alt="Hyundai"></a></div>
+  <div class="photo-card card-12"><a href="https://vimeo.com/1238469782" target="_blank"><img src="assets/images/arabamcom.png" alt="Arabamcom"></a></div>
   <div class="photo-card card-13 framing-landscape"><a href="https://vimeo.com/1238466150" target="_blank"><img src="assets/images/endeksa.png" alt="Endeksa"></a></div>
-  <div class="photo-card card-14"><a href="https://vimeo.com/1238464430" target="_blank"><img src="assets/images/ioniq6bat.png" alt="Hyundai IONIQ 6 Battery"></a></div>
-  <div class="photo-card card-15 framing-landscape"><a href="https://vimeo.com/663833559" target="_blank"><img src="assets/images/medipol.png" alt="Medipol Üniversitesi"></a></div>
+  <div class="photo-card card-14"><a href="https://vimeo.com/1238464430" target="_blank"><img src="assets/images/ioniq6bat.png" alt="Hyundai"></a></div>
+  <div class="photo-card card-15 framing-landscape"><a href="https://vimeo.com/663833559" target="_blank"><img src="assets/images/medipol.png" alt="Medipol"></a></div>
   <div class="photo-card card-16"><a href="https://vimeo.com/1238470696" target="_blank"><img src="assets/images/oralb.png" alt="Oral-B"></a></div>
   <div class="photo-card card-17"><a href="https://vimeo.com/1060122692" target="_blank"><img src="assets/images/melisakarakurt.png" alt="Melisa Karakurt"></a></div>
-  <div class="photo-card card-18 framing-portrait framing-gauge"><a href="https://vimeo.com/1238464693" target="_blank"><img src="assets/images/bayon.png" alt="Hyundai Bayon - gösterge paneli"></a></div>
-  <div class="photo-card card-19"><a href="https://vimeo.com/1064220018" target="_blank"><img src="assets/images/nyx.png" alt="NYX Candy Slick"></a></div>
-  <div class="photo-card card-20"><a href="https://vimeo.com/1238785978" target="_blank"><img src="assets/images/toyzz.png" alt="Toyzz Shop - QLUDUS"></a></div>
+  <div class="photo-card card-18 framing-portrait framing-gauge"><a href="https://vimeo.com/1238464693" target="_blank"><img src="assets/images/bayon.png" alt="Hyundai"></a></div>
+  <div class="photo-card card-19"><a href="https://vimeo.com/1064220018" target="_blank"><img src="assets/images/nyx.png" alt="NYX"></a></div>
+  <div class="photo-card card-20"><a href="https://vimeo.com/1238785978" target="_blank"><img src="assets/images/toyzz.png" alt="Toyzz Shop"></a></div>
   <div class="photo-card card-21"><a href="https://vimeo.com/663922196" target="_blank"><img src="assets/images/çiçeksepeti.png" alt="ÇiçekSepeti"></a></div>
-  <div class="photo-card card-22 framing-portrait"><a href="https://vimeo.com/1238851484" target="_blank"><img src="assets/images/i30.png" alt="Hyundai i30"></a></div>
+  <div class="photo-card card-22 framing-portrait"><a href="https://vimeo.com/1238851484" target="_blank"><img src="assets/images/i30.png" alt="Hyundai"></a></div>
   <div class="photo-card card-23 framing-portrait"><a href="https://vimeo.com/1238454623" target="_blank"><img src="assets/images/gurme.png" alt="GurmePack"></a></div>
-  <div class="photo-card card-24 framing-landscape"><a href="https://vimeo.com/663675980" target="_blank"><img src="assets/images/bbva.png" alt="Garanti BBVA"></a></div>
+  <div class="photo-card card-24 framing-landscape"><a href="https://vimeo.com/663675980" target="_blank"><img src="assets/images/bbva.png" alt="Garanti"></a></div>
   <div class="photo-card card-25"><a href="https://vimeo.com/663699775" target="_blank"><img src="assets/images/yıldıztilbe.png" alt="Yıldız Tilbe"></a></div>
-  <div class="photo-card card-26"><a href="https://vimeo.com/1238462520" target="_blank"><img src="assets/images/instercross.png" alt="Hyundai Inster Cross"></a></div>
+  <div class="photo-card card-26"><a href="https://vimeo.com/1238462520" target="_blank"><img src="assets/images/instercross.png" alt="Hyundai"></a></div>
 </div>
-  <footer class="contact-footer" aria-label="İletişim bilgileri">
-  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
-    <svg viewBox="0 0 24 24">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-    </svg>
-  </a>
-    <div class="contact-details">
-      <a href="tel:+905448470585">Tel. 544-847-05-85</a>
+<footer class="contact-footer" aria-label="İletişim bilgileri">
+  <div class="contact-details">
+    <a href="tel:+905448470585">Tel. +90-544-847-05-85</a>
       <span class="contact-separator" aria-hidden="true">////</span>
       <a href="mailto:info@gorkemkalafat.com">info@gorkemkalafat.com</a>
     </div>
@@ -376,6 +369,50 @@
   <script>
     const videoPlayer = document.querySelector('.video-player');
     const playerFrame = document.querySelector('.player-frame');
+
+    document.querySelectorAll('.photo-card img[alt]').forEach((image) => {
+      const label = image.alt.trim().toLowerCase();
+      const words = label.split(/\s+/);
+      const title = document.createElement('span');
+      const slash = document.createElement('span');
+
+      title.className = 'photo-title';
+      title.setAttribute('aria-hidden', 'true');
+      slash.className = 'photo-title-slash';
+      slash.textContent = '/';
+      title.append(slash);
+
+      if (words.length === 2) {
+        const lightPart = document.createElement('span');
+        const boldPart = document.createElement('strong');
+        lightPart.className = 'photo-title-light';
+        lightPart.textContent = words[0];
+        boldPart.textContent = words[1];
+        title.append(lightPart, document.createTextNode(' '), boldPart);
+      } else {
+        const boldLength = Math.min(2, Math.ceil(label.length / 2));
+        const regularEnd = Math.max(boldLength, label.length - boldLength);
+        const boldStart = document.createElement('strong');
+        boldStart.textContent = label.slice(0, boldLength);
+        title.append(boldStart);
+
+        if (regularEnd > boldLength) {
+          const lightPart = document.createElement('span');
+          lightPart.className = 'photo-title-light';
+          lightPart.textContent = label.slice(boldLength, regularEnd);
+          title.append(lightPart);
+        }
+
+        if (regularEnd < label.length) {
+          const boldEnd = document.createElement('strong');
+          boldEnd.textContent = label.slice(regularEnd);
+          title.append(boldEnd);
+        }
+      }
+
+      title.style.fontSize = `clamp(0.65rem, ${170 / title.textContent.length}cqi, 4rem)`;
+      image.parentElement.append(title);
+    });
 
     document.querySelectorAll('.photo-card a[href^="https://vimeo.com/"]').forEach((link) => {
       link.addEventListener('click', (event) => {
