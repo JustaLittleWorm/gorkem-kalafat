@@ -138,7 +138,7 @@
       color: #fff;
       font-family: 'Helvetica Light Italic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 1rem;
-      font-weight: 100;
+      font-weight: 20;
       font-style: italic;
       line-height: 1.15;
       letter-spacing: -0.06em;
@@ -148,19 +148,23 @@
       font-synthesis: weight;
     }
 
+    .card-3 .photo-title {
+      top: 64%;
+    }
+
     .photo-title strong {
       font-family: inherit;
-      font-weight: 700;
+      color: #fff;
+      font-weight: 600;
       font-style: italic;
     }
 
     .photo-title-syllable-bold {
-      font-weight: 900;
-      -webkit-text-stroke: 0.45px currentColor;
+      font-weight: 800;
     }
 
     .photo-title-light {
-      color: #fff;
+      color: inherit;
       font-weight: 100;
       font-style: italic;
     }
@@ -234,12 +238,12 @@
     }
 
     /* Yerleşim_Olculeri.json'daki 1500 px masaüstü koordinatları */
-    .card-1  { left: 52.66667%; top: 14.53333cqw; width: 26.00000%; height: 14.73333cqw; z-index: 3; }
+    .card-1  { left: 48.40000%; top: 12.25000cqw; width: 34.20000%; height: 17.00000cqw; z-index: 3; }
     .card-2  { left: 64.00000%; top: 29.26667cqw; width: 25.00000%; height: 14.10000cqw; z-index: 5; }
-    .card-3  { left: 59.20000%; top: 39.53333cqw; width: 24.00000%; height: 30.00000cqw; z-index: 2; --object-position: 50% 0%; }
-    .card-4  { left: 30.33333%; top: 31.73333cqw; width: 18.50000%; height: 23.12500cqw; z-index: 4; --object-position: 50% 49%; }
+    .card-3  { left: 30.33333%; top: 31.73333cqw; width: 18.50000%; height: 23.12500cqw; z-index: 4; --object-position: 50% 80%; }
+    .card-4  { left: 46.66667%; top: 59.13333cqw; width: 17.53333%; height: 27.20000cqw; z-index: 4; --object-position: 50% 49%; }
     .card-5  { left: 14.33333%; top: 50.80000cqw; width: 17.20000%; height: 22.06667cqw; z-index: 5; --object-position: 50% 100%; }
-    .card-6  { left: 46.66667%; top: 59.13333cqw; width: 17.53333%; height: 27.20000cqw; z-index: 4; --object-position: 51% 0%; }
+    .card-6  { left: 59.20000%; top: 39.53333cqw; width: 24.00000%; height: 30.00000cqw; z-index: 2; --object-position: 51% 0%; }
     .card-7  { left: 68.26667%; top: 69.86667cqw; width: 17.46667%; height: 11.60000cqw; z-index: 5; }
     .card-8  { left: 22.26667%; top: 73.46667cqw; width: 24.46667%; height: 15.06667cqw; z-index: 4; --object-position: 55% 50%; }
     .card-9  { left: 49.46667%; top: 80.60000cqw; width: 23.73333%; height: 15.26667cqw; z-index: 5; --object-position: 51% 48%; }
@@ -292,12 +296,12 @@
         max-width: 100%;
       }
 
-      .card-1  { left: 47.00000%; top: 36.66667cqw; width: 48.00000%; height: 27.00000cqw; z-index: 3; }
+      .card-1  { left: 39.00000%; top: 33.00000cqw; width: 58.00000%; height: 31.20000cqw; z-index: 3; }
       .card-2  { left: 56.00000%; top: 63.66667cqw; width: 40.00000%; height: 22.60000cqw; z-index: 5; }
-      .card-3  { left: 50.25641%; top: 106.41026cqw; width: 48.00000%; height: 60.51282cqw; z-index: 2; }
-      .card-4  { left: 26.92308%; top: 69.48718cqw; width: 38.50000%; height: 48.71795cqw; z-index: 4; }
+      .card-3  { left: 26.92308%; top: 69.48718cqw; width: 38.50000%; height: 48.71795cqw; z-index: 4; }
+      .card-4  { left: 42.05128%; top: 172.05128cqw; width: 42.05128%; height: 65.12821cqw; z-index: 3; }
       .card-5  { left: 8.46154%; top: 130.51282cqw; width: 39.48718%; height: 54.61538cqw; z-index: 5; }
-      .card-6  { left: 42.05128%; top: 172.05128cqw; width: 42.05128%; height: 65.12821cqw; z-index: 3; --object-position: 51% 0%; }
+      .card-6  { left: 50.25641%; top: 106.41026cqw; width: 48.00000%; height: 60.51282cqw; z-index: 2; --object-position: 51% 0%; }
       .card-7  { left: 8.97436%; top: 220.76923cqw; width: 43.33333%; height: 28.71795cqw; z-index: 5; }
       .card-8  { left: 41.28205%; top: 240.00000cqw; width: 52.56410%; height: 32.05128cqw; z-index: 4; }
       .card-9  { left: 10.25641%; top: 270.51282cqw; width: 55.38462%; height: 35.64103cqw; z-index: 5; }
@@ -446,7 +450,7 @@
         });
       }
 
-      title.style.fontSize = `clamp(0.65rem, ${170 / title.textContent.length}cqi, 4rem)`;
+      title.style.fontSize = `clamp(0.585rem, ${153 / title.textContent.length}cqi, 3.6rem)`;
       image.parentElement.append(title);
     });
 
