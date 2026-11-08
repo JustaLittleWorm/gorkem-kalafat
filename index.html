@@ -129,6 +129,19 @@
       height: 100%;
     }
 
+    .photo-card .photo-mark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      width: min(92%, 360px);
+      height: auto;
+      max-height: 82%;
+      object-fit: contain;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
     .photo-title {
       position: absolute;
       top: 50%;
@@ -240,7 +253,7 @@
     /* Yerleşim_Olculeri.json'daki 1500 px masaüstü koordinatları */
     .card-1  { left: 48.40000%; top: 12.25000cqw; width: 34.20000%; height: 17.00000cqw; z-index: 3; }
     .card-2  { left: 64.00000%; top: 29.26667cqw; width: 25.00000%; height: 14.10000cqw; z-index: 5; }
-    .card-3  { left: 30.33333%; top: 31.73333cqw; width: 18.50000%; height: 23.12500cqw; z-index: 4; --object-position: 50% 80%; }
+    .card-3  { left: 30.33333%; top: 31.73333cqw; width: 18.50000%; height: 23.12500cqw; z-index: 4; --object-position: 50% 100%; }
     .card-4  { left: 46.66667%; top: 59.13333cqw; width: 17.53333%; height: 27.20000cqw; z-index: 4; --object-position: 50% 49%; }
     .card-5  { left: 14.33333%; top: 50.80000cqw; width: 17.20000%; height: 22.06667cqw; z-index: 5; --object-position: 50% 100%; }
     .card-6  { left: 59.20000%; top: 39.53333cqw; width: 24.00000%; height: 30.00000cqw; z-index: 2; --object-position: 51% 0%; }
@@ -409,7 +422,41 @@
       }, 0);
     }
 
+    const brandMarks = {
+      'HangiKredi': 'hangikredi.png',
+      'Kamufle': 'kamufle.png',
+      'Hyundai': 'hyundai.png',
+      'Canon': 'canon.png',
+      'ToyzzShop': 'toyzzshop.png',
+      'Toyzz Shop': 'toyzzshop.png',
+      "L'Oreal Paris": 'loreal.png',
+      'Trendyol': 'trendyol.png',
+      'Ariel': 'ariel.png',
+      'Elseve': 'elseve.png',
+      'Arabamcom': 'arabamcom.png',
+      'Endeksa': 'endeksa.png',
+      'Medipol': 'medipol.png',
+      'Oral-B': 'oralb.png',
+      'Melisa Karakurt': 'melisa.png',
+      'NYX': 'nyx.png',
+      'ÇiçekSepeti': 'ciceksepeti.png',
+      'GurmePack': 'gurmepack.png',
+      'Garanti': 'garanti.png',
+      'Yıldız Tilbe': 'yıldız.png'
+    };
+
     document.querySelectorAll('.photo-card img[alt]').forEach((image) => {
+      const markFile = brandMarks[image.alt];
+      if (markFile) {
+        const mark = document.createElement('img');
+        mark.className = 'photo-mark';
+        mark.src = `assets/mark/${markFile}`;
+        mark.alt = '';
+        mark.setAttribute('aria-hidden', 'true');
+        image.parentElement.append(mark);
+        return;
+      }
+
       const words = image.alt.trim()
         .replace(/([a-zçğıöşü])([A-ZÇĞİÖŞÜ])/g, '$1 $2')
         .toLowerCase()
